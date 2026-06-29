@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://addagiri-spoorthi.vercel.app/sitemap.xml
