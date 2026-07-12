@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Addagiri Spoorthi — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0A0E1A;--panel:#10162A;--panel2:#131B33;--line:#233054;
+    --text:#E7EBF6;--muted:#8892AE;--dim:#C5CBDD;
+    --explore:#57E1C9;--path:#FF9E4A;--gh:#B07BFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--void);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--path);color:var(--void)}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* sticky nav (not fixed — safe for preview) */
+  .nav{position:sticky;top:0;z-index:20;background:rgba(10,14,26,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:960px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;display:flex;align-items:center;gap:9px}
+  .logo .d{width:10px;height:10px;border-radius:50%;background:var(--path);box-shadow:0 0 12px var(--path)}
+  .nav a.link{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-left:16px;transition:color .2s}
+  .nav a.link:hover{color:var(--explore)}
+  @media (max-width:640px){.nav a.link{display:none}}
+
+  /* hero */
+  .hero{padding:70px 0 50px;border-bottom:1px solid var(--line)}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--explore);margin-bottom:22px}
+  .eyebrow .p{width:8px;height:8px;border-radius:50%;background:var(--explore);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(87,225,201,.5)}70%{box-shadow:0 0 0 9px rgba(87,225,201,0)}100%{box-shadow:0 0 0 0 rgba(87,225,201,0)}}
+  h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(40px,8vw,72px);line-height:.96;letter-spacing:-.03em;margin-bottom:18px}
+  h1 .stroke{color:transparent;-webkit-text-stroke:1.3px var(--muted)}
+  .lede{font-size:clamp(16px,2.2vw,19px);color:var(--dim);max-width:52ch;margin-bottom:22px}
+  .lede b{color:var(--text);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:6px 13px}
+  .chip b{color:var(--explore);font-weight:500}
+  .cta{display:flex;flex-wrap:wrap;gap:11px}
+  .btn{font-family:'JetBrains Mono',monospace;font-size:13px;padding:12px 18px;border-radius:10px;border:1px solid var(--line);transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+  .btn.solid{background:var(--path);color:var(--void);border-color:var(--path);font-weight:700}
+  .btn.solid:hover{transform:translateY(-2px)}
+  .btn.ghost:hover{border-color:var(--explore);color:var(--explore)}
+
+  section{padding:60px 0;border-bottom:1px solid var(--line)}
+  .label{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+  .label .n{width:9px;height:9px;border-radius:50%;background:var(--explore);box-shadow:0 0 8px var(--explore)}
+  h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(26px,4.4vw,38px);letter-spacing:-.02em;margin-bottom:18px;line-height:1.05}
+  p.body{color:var(--dim);font-size:16px;max-width:60ch;margin-bottom:14px}
+  p.body b{color:var(--text);font-weight:600}
+
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px;max-width:520px}
+  .fact{border:1px solid var(--line);border-radius:11px;background:var(--panel);padding:14px 16px}
+  .fact .k{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+  .fact .v{font-weight:600;font-size:15px}
+  .fact .v b{color:var(--path)}
+
+  .exp{border-left:2px solid var(--line);padding-left:22px;margin-bottom:26px}
+  .exp:last-child{margin-bottom:0}
+  .exp .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;align-items:baseline}
+  .exp .role{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:19px}
+  .exp .when{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--path)}
+  .exp .org{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--explore);margin:2px 0 10px}
+  .exp ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .exp li{position:relative;padding-left:18px;color:var(--dim);font-size:14.5px}
+  .exp li::before{content:"→";position:absolute;left:0;color:var(--muted)}
+
+  .proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{border:1px solid var(--line);border-radius:15px;background:var(--panel);padding:24px;transition:transform .22s,border-color .22s}
+  .card:hover{transform:translateY(-4px);border-color:var(--explore)}
+  .card.feat{border-color:#3a2f5c;background:linear-gradient(160deg,var(--panel2),var(--panel))}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gh);border:1px solid #3a2f5c;background:rgba(176,123,255,.08);border-radius:100px;padding:3px 10px;margin-bottom:12px}
+  .card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:21px;margin-bottom:9px}
+  .card p{color:var(--dim);font-size:14px;margin-bottom:14px}
+  .metric{display:flex;align-items:baseline;gap:8px;margin-bottom:14px}
+  .metric .num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;color:var(--path);line-height:1}
+  .metric .cap{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);text-transform:uppercase}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 8px}
+  .ghlink{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--void);background:var(--path);border-radius:9px;padding:9px 14px;font-weight:700;transition:transform .2s}
+  .ghlink:hover{transform:translateY(-2px)}
+
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .scol h4{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--explore);margin-bottom:12px}
+  .scol .tags span{font-size:13.5px;border:1px solid var(--line);border-radius:8px;padding:7px 11px;background:var(--panel)}
+
+  .contact-card{border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,var(--panel2),var(--void));padding:clamp(28px,5vw,48px);text-align:center}
+  .contact-card h2{margin-bottom:12px}
+  .contact-card p{color:var(--dim);max-width:44ch;margin:0 auto 24px}
+  .clinks{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+
+  footer{padding:28px 0 50px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.p{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-in">
+    <div class="logo"><span class="d"></span>Addagiri Spoorthi</div>
+    <div>
+      <a class="link" href="#about">about</a>
+      <a class="link" href="#work">work</a>
+      <a class="link" href="#contact">contact</a>
+      <a class="link" href="https://github.com/addagirigopikaspurthi" target="_blank" rel="noopener">github ↗</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow"><span class="p"></span>open to ML &amp; software internships</span>
+    <h1>Addagiri Spoorthi<br><span class="stroke">builds & ships.</span></h1>
+    <p class="lede">Computer Science undergrad working across <b>machine learning, GenAI, algorithms, and systems</b> — from RAG chatbots to voice-controlled home automation.</p>
+    <div class="chips">
+      <span class="chip">B.Tech CSE · <b>SRM</b></span>
+      <span class="chip">GPA <b>8.65</b>/10</span>
+      <span class="chip">Guntur, IN</span>
+    </div>
+    <div class="cta">
+      <a class="btn solid" href="#work">See the work →</a>
+      <a class="btn ghost" href="https://github.com/addagirigopikaspurthi" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/addagiri-spoorthi-8a6ab1334/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="label reveal"><span class="n"></span>about</div>
+    <h2 class="reveal">Messy inputs, clean decisions.</h2>
+    <p class="body reveal">Third-year B.Tech Computer Science student at <b>SRM Institute of Science and Technology</b>. My favorite work is where theory meets something running — a RAG pipeline that answers correctly, a classifier I trust, or traversal code that finds the path.</p>
+    <p class="body reveal">That's taken me from a hands-on <b>C/C++ &amp; DSA</b> internship to a <b>machine-learning research role</b> at North Chiang Mai University, plus full-stack projects I built and shipped end to end.</p>
+    <div class="facts reveal">
+      <div class="fact"><div class="k">focus</div><div class="v">ML · GenAI · DSA</div></div>
+      <div class="fact"><div class="k">degree</div><div class="v">B.Tech CSE · 2023–27</div></div>
+      <div class="fact"><div class="k">gpa</div><div class="v"><b>8.65</b> / 10.0</div></div>
+      <div class="fact"><div class="k">based in</div><div class="v">Guntur, AP, India</div></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="label reveal"><span class="n"></span>experience</div>
+    <h2 class="reveal">Where I've worked.</h2>
+    <div class="exp reveal">
+      <div class="top"><span class="role">Research Intern</span><span class="when">May – Jun 2025</span></div>
+      <div class="org">North Chiang Mai University · Thailand</div>
+      <ul>
+        <li>Built an ML system predicting diabetes risk from patient health parameters.</li>
+        <li>Developed a ReactJS interface for data input and result visualization.</li>
+        <li>Ran preprocessing, feature selection, and evaluation to raise accuracy.</li>
+        <li>Trained and analyzed models in Python with Scikit-learn.</li>
+      </ul>
+    </div>
+    <div class="exp reveal">
+      <div class="top"><span class="role">C / C++ &amp; DSA Intern</span><span class="when">Jan – Mar 2025</span></div>
+      <div class="org">Internship · Guntur, AP</div>
+      <ul>
+        <li>Worked extensively in C and C++ on data structures and algorithms.</li>
+        <li>Built up dynamic programming, graph theory, and OOP.</li>
+        <li>Applied algorithmic problem-solving to optimize program efficiency.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="label reveal"><span class="n"></span>work</div>
+    <h2 class="reveal">Selected projects.</h2>
+    <div class="proj">
+      <div class="card feat reveal">
+        <span class="badge">✔ verified · live on GitHub</span>
+        <h3>FAQFlow AI</h3>
+        <p>A RAG-powered SaaS that turns uploaded FAQ documents into an intelligent, embeddable support chatbot. Upload a PDF/DOCX/TXT and get a chatbot trained on it instantly.</p>
+        <div class="tags"><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">LangChain</span><span class="tag">OpenAI</span><span class="tag">ChromaDB</span><span class="tag">RAG</span></div>
+        <a class="ghlink" href="https://github.com/addagirigopikaspurthi/GEN-AI" target="_blank" rel="noopener">⌥ View on GitHub ↗</a>
+      </div>
+      <div class="card feat reveal">
+        <span class="badge">✔ verified · live on GitHub</span>
+        <h3>NexusHome</h3>
+        <p>A voice-controlled smart-home automation system with a real-time web UI — control lights, thermostat, TV, curtains, and security with natural-language commands and scenes.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">WebSockets</span><span class="tag">Voice</span><span class="tag">Real-time UI</span></div>
+        <a class="ghlink" href="https://github.com/addagirigopikaspurthi/Smart-home-automation" target="_blank" rel="noopener">⌥ View on GitHub ↗</a>
+      </div>
+      <div class="card reveal">
+        <h3>Credit Card Fraud Detection</h3>
+        <p>A classifier separating fraudulent from legitimate transactions, comparing Random Forest and SVM — tuned to catch the cases that matter most.</p>
+        <div class="metric"><span class="num">100%</span><span class="cap">recall (Random Forest)</span></div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Random Forest</span><span class="tag">SVM</span></div>
+      </div>
+      <div class="card reveal">
+        <h3>Maze Solver</h3>
+        <p>A pathfinding app that explores a grid with DFS and BFS and computes the shortest valid route — stacks for depth-first descent, queues for breadth-first waves.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">BFS</span><span class="tag">DFS</span><span class="tag">Stacks &amp; Queues</span></div>
+      </div>
+      <div class="card reveal">
+        <h3>PowerMonitor</h3>
+        <p>An Android app tracking real-time battery usage and app activity, with background services for continuous monitoring and analytics on power-hungry apps.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Android SDK</span><span class="tag">SQLite</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="label reveal"><span class="n"></span>stack</div>
+    <h2 class="reveal">Tools I reach for.</h2>
+    <div class="skills">
+      <div class="scol reveal"><h4>Languages</h4><div class="tags"><span>C</span><span>C++</span><span>Python</span><span>Java</span><span>JavaScript</span></div></div>
+      <div class="scol reveal"><h4>Technologies</h4><div class="tags"><span>Scikit-learn</span><span>ReactJS</span><span>Next.js</span><span>FastAPI</span><span>Flask</span><span>LangChain</span><span>ChromaDB</span><span>MySQL</span><span>Git</span></div></div>
+      <div class="scol reveal"><h4>Core concepts</h4><div class="tags"><span>DSA</span><span>OOP</span><span>Machine Learning</span><span>RAG / GenAI</span><span>NLP</span><span>Operating Systems</span></div></div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none">
+    <div class="label reveal"><span class="n"></span>contact</div>
+    <div class="contact-card reveal">
+      <h2>Let's build something.</h2>
+      <p>Open to internships and collaboration in ML, GenAI, and software engineering. Email is the fastest way to reach me.</p>
+      <div class="clinks">
+        <a class="btn solid" href="mailto:addagirispoorthi@gmail.com">addagirispoorthi@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/addagiri-spoorthi-8a6ab1334/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn ghost" href="https://github.com/addagirigopikaspurthi" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn ghost" href="tel:+918977938436">+91 89779 38436</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Addagiri Spoorthi · Guntur, Andhra Pradesh</footer>
+</div>
+
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
